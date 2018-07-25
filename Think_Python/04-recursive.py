@@ -14,7 +14,8 @@ def recusive(fun, n):
 		return
 	fun()
 	recusive(fun, n-1)
-
+#刚开始的时候进入了一个小白盲区，先把函数print_n给f，再把f传递给recusive函数，
+#然后递归函数中一直无法使用函数打印
 
 
 recusive(print_n,10)
