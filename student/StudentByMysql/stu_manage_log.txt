@@ -7,3 +7,132 @@
 2018-07-29 01:00:31,460 - __main__ - INFO - 打印了所有学生信息
 2018-07-29 01:08:49,709 - __main__ - INFO - select * from student_ where sid = 151310144
 2018-07-29 01:08:59,669 - __main__ - INFO - select * from student_ where sid = 1513101111
+2018-07-29 01:33:33,691 - __main__ - INFO - select * from student_
+2018-07-29 01:33:33,697 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 02:48:17,135 - __main__ - INFO - select * from course_
+2018-07-29 03:00:13,207 - __main__ - INFO - select * from course_
+2018-07-29 03:02:08,636 - __main__ - INFO - insert into course_(cname, cstatu)values
+		('Python','0')
+2018-07-29 03:02:08,736 - __main__ - ERROR - Insert operation error
+Traceback (most recent call last):
+  File "mysql_logging.py", line 39, in insert
+    cursor.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'cstatu' in 'field list'")
+2018-07-29 03:04:01,499 - __main__ - INFO - insert into course_(cname, cstatus)values
+		('Python','0')
+2018-07-29 03:04:13,961 - __main__ - INFO - insert into course_(cname, cstatus)values
+		('Java','0')
+2018-07-29 03:04:57,087 - __main__ - INFO - insert into course_(cname, cstatus)values
+		('Mysql','0')
+2018-07-29 03:06:49,694 - __main__ - INFO - select * from course_
+2018-07-29 03:08:03,046 - __main__ - INFO - select * from course_
+2018-07-29 03:08:39,485 - __main__ - INFO - select * from course_
+2018-07-29 03:09:12,421 - __main__ - INFO - select * from course_
+2018-07-29 03:10:32,828 - __main__ - INFO - select * from course_
+2018-07-29 03:11:13,900 - __main__ - INFO - select * from course_
+2018-07-29 03:12:54,977 - __main__ - INFO - select * from course_
+2018-07-29 03:13:17,165 - __main__ - INFO - insert into course_(cname, cstatus)values
+		('Javascript','1')
+2018-07-29 03:13:19,145 - __main__ - INFO - select * from course_
+2018-07-29 03:13:42,184 - __main__ - INFO - select * from course_
+2018-07-29 03:14:08,505 - __main__ - INFO - select * from course_
+2018-07-29 03:14:26,802 - __main__ - INFO - select * from course_
+2018-07-29 03:14:45,079 - __main__ - INFO - select * from course_
+2018-07-29 03:15:01,400 - __main__ - INFO - select * from course_
+2018-07-29 03:15:27,552 - __main__ - INFO - select * from course_
+2018-07-29 03:24:32,642 - __main__ - INFO - select * from course_
+2018-07-29 03:24:37,979 - __main__ - INFO - select * from course_
+2018-07-29 03:24:49,835 - __main__ - INFO - select * from course_
+2018-07-29 03:24:54,795 - __main__ - INFO - DELETE FROM course_ WHERE id = 4
+2018-07-29 03:24:58,450 - __main__ - INFO - select * from course_
+2018-07-29 03:37:04,279 - __main__ - INFO - select * from course_
+2018-07-29 03:37:22,326 - __main__ - INFO - insert into course_(cname, cstatus)values
+		('C#','1')
+2018-07-29 03:37:24,494 - __main__ - INFO - select * from course_
+2018-07-29 03:37:35,762 - __main__ - INFO - select * from course_
+2018-07-29 03:38:09,008 - __main__ - INFO - select * from course_
+2018-07-29 03:38:14,414 - __main__ - INFO - DELETE FROM course_ WHERE id = 4
+2018-07-29 03:38:19,838 - __main__ - INFO - select * from course_
+2018-07-29 03:39:46,950 - __main__ - INFO - select * from course_
+2018-07-29 03:40:30,702 - __main__ - INFO - select * from course_
+2018-07-29 03:40:47,711 - __main__ - INFO - select * from course_
+2018-07-29 03:41:45,525 - __main__ - INFO - select * from course_
+2018-07-29 03:42:55,886 - __main__ - INFO - select * from course_
+2018-07-29 03:43:30,485 - __main__ - INFO - select * from course_
+2018-07-29 03:43:39,215 - __main__ - INFO - update course_ set cname = Mysql, cstatus = 1 where id = 3
+2018-07-29 03:43:39,288 - __main__ - ERROR - Search operation error
+Traceback (most recent call last):
+  File "mysql_logging.py", line 108, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'Mysql' in 'field list'")
+2018-07-29 03:45:14,994 - __main__ - INFO - select * from course_
+2018-07-29 03:45:24,666 - __main__ - INFO - update course_ set cname = 'Mysql',cstatus = 1 where id = 3
+2018-07-29 03:45:30,362 - __main__ - INFO - select * from course_
+2018-07-29 03:45:43,275 - __main__ - INFO - update course_ set cname = 'javascript',cstatus = 1 where id = 4
+2018-07-29 03:45:47,875 - __main__ - INFO - select * from course_
+2018-07-29 04:08:29,253 - __main__ - INFO - select * from student_
+2018-07-29 04:08:29,938 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:09:03,045 - __main__ - INFO - select * from student_
+2018-07-29 04:09:03,433 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:09:38,861 - __main__ - INFO - select * from student_
+2018-07-29 04:09:39,367 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:12:37,775 - __main__ - INFO - select * from student_
+2018-07-29 04:12:37,862 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:13:21,054 - __main__ - INFO - select * from student_
+2018-07-29 04:13:21,147 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:13:55,111 - __main__ - INFO - select * from student_
+2018-07-29 04:13:55,226 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:14:23,640 - __main__ - INFO - update student_ set sid = 151310145,sname = '武则天',sage = 18, sgender = '女', sphone = 13867560980 where sid = 151310101
+2018-07-29 04:14:34,796 - __main__ - INFO - select * from student_
+2018-07-29 04:14:34,871 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:17:08,745 - __main__ - INFO - select * from course_
+2018-07-29 04:17:55,449 - __main__ - INFO - select * from course_
+2018-07-29 04:20:01,878 - __main__ - INFO - select * from course_
+2018-07-29 04:20:07,902 - __main__ - INFO - select * from course_
+2018-07-29 04:20:25,548 - __main__ - INFO - select * from course_
+2018-07-29 04:27:36,040 - __main__ - INFO - select * from student_
+2018-07-29 04:27:36,129 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:28:14,222 - __main__ - INFO - select * from student_
+2018-07-29 04:28:14,339 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:28:43,885 - __main__ - INFO - select * from student_
+2018-07-29 04:28:43,990 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:28:53,508 - __main__ - INFO - DELETE FROM student_ WHERE sid = 151310102
+2018-07-29 04:28:58,396 - __main__ - INFO - select * from student_
+2018-07-29 04:28:58,474 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:39:22,340 - mysql_logging - INFO - select * from student_
+2018-07-29 04:39:51,068 - mysql_logging - INFO - select * from student_
+2018-07-29 04:39:51,165 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 04:40:02,139 - mysql_logging - INFO - select * from course_
+2018-07-29 04:40:09,716 - mysql_logging - INFO - select * from course_

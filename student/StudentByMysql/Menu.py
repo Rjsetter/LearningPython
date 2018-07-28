@@ -4,6 +4,9 @@
 	这个模块为mysql版本的学生管理系统提供菜单页面
 	Authour: Rjsetter
 """
+import datetime
+
+
 def  menu_search_stu():
 	"""学生查询界面"""
 	print("+"*28)
@@ -39,7 +42,7 @@ def  menu():
 	print("+++++++++++++++++++++++++++++++++++++++++++++++")      
 	print("+\t      1.管理学生                      +")
 	print("+\t      2.查看学生                      +")		
-	print("+\t      3.学生选课                      +")		
+	print("+\t      3.课程管理                      +")		
 	print("+\t      4.学生选课情况                  +")
 	print("+\t      5.查改课程                      +")
 	print("+\t      6.打分程序                      +")
@@ -48,3 +51,19 @@ def  menu():
 	print("+++++++++++++++++++++++++++++++++++++++++++++++") 
 	print("+{0: ^45}+".format(datetime_str))
 	print("+++++++++++++++++++++++++++++++++++++++++++++++") 
+
+def menu_manage_corse():
+	"""管理课程界面"""
+	print("+"*28)
+	print("+{0:^20}+".format("课程管理界面"))
+	print("+"*28)
+	print("|{0:<22}|".format("1.查看课程"))
+	print("|{0:<22}|".format("2.添加课程"))
+	print("|{0:<22}|".format("3.删除课程"))
+	print("|{0:<22}|".format("4.修改课程"))
+	print("|{0:\u3000<14}|".format("5.退出课程管理界面"))
+	print("+"*28)
+
+
+if __name__ == '__main__':
+	menu_manage_corse()
