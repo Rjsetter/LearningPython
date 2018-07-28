@@ -1,0 +1,9 @@
+2018-07-29 00:55:06,733 - __main__ - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310146','黄月英','34','女','13456658976')
+2018-07-29 00:56:04,633 - __main__ - INFO - select * from student_
+2018-07-29 00:56:54,254 - __main__ - INFO - select * from student_
+2018-07-29 00:56:54,289 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 01:00:31,435 - __main__ - INFO - select * from student_
+2018-07-29 01:00:31,460 - __main__ - INFO - 打印了所有学生信息
+2018-07-29 01:08:49,709 - __main__ - INFO - select * from student_ where sid = 151310144
+2018-07-29 01:08:59,669 - __main__ - INFO - select * from student_ where sid = 1513101111
