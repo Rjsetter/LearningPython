@@ -1,0 +1,4 @@
+2018-7-28
+python logging模块学习
+http://www.cnblogs.com/dahu-daqing/p/7040764.html
+《编写高质量代码-改善Python程序的91个建议》
