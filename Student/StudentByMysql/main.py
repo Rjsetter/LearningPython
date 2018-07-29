@@ -27,7 +27,7 @@ def insert2student():
 	confirm =  input("确认添加吗？(yes/no):")
 	if confirm == "yes":
 		insert(sql)
-
+	return sid
 
 def show_student(sql):
 	#返回的是一个嵌套元组
@@ -255,7 +255,8 @@ def admin():
 			pass
 			# makeScore()
 		elif select == '7':
-			pass
+			t = get_user()
+			print(t)
 			# showScore()
 
 		elif select == '8':
@@ -270,48 +271,97 @@ def register():
 	print("欢迎注册,请输入下列信息：")
 	username = input("Username：")
 	pwd = input("Password:")
-	sql_register = """insert into user_(username, userpwd)values
-		('%s','%s')"""%(username, pwd)
-	confirm =  input("确认添加吗？(yes/no):")
+	sid = insert2student()
+	sql_register = """insert into user_(username, userpwd, stu_id)values
+		('%s','%s','%s')"""%(username, pwd, sid)
 	if confirm == "yes":
 		insert(sql_register)
 		print("注册成功，请牢记您的用户名和密码！")
 	else:
 		print("注册失败,即将回到主菜单！")
 
-def Student():
+
+def show_stu_info(user):
+	"""打印学生个人信息"""
+	sql_show_stu = "SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '"+user+"'"
+	content = search(sql_show_stu)
+	print('\n\n########################################')
+	print("#          个人信息如下                #")
+	print('########################################')
+	print("#学号：{0:\u3000<38}".format(content[0][0]))
+	print("#姓名：{0:\u3000<38}".format(content[0][1]))
+	print("#性别：{0:\u3000<38}".format(content[0][2]))
+	print("#年龄：{0:\u3000<38}".format(content[0][3]))
+	print("#电话：{0:\u3000<38}".format(content[0][4]))
+	print('########################################')
+	print('\n\n')
+	return content
+
+
+def change_stu_info(user):
+	"""修改个人信息"""
+	#请输入正确的学生学号，不然可能出现bug！
+	content = show_stu_info(user)
+	sid_ = content[0][0]
+	print(sid_)
+	sname = input("请输入学生的姓名：")
+	sage = input("请输入学生的年龄：")
+	sgender = input("请输入学生的性别：")
+	sphone = input("请输入学生的电话：")
+	sql_update = "update student_ set sname = '"+sname+"'"+",sage = %d, sgender = '"%(int(sage))+sgender+"'"+", sphone = %d where sid = '"%(int(sphone))+sid_+"'"
+	confirm =  input("确认修改吗？(yes/no):")
+	if confirm == "yes":
+		update(sql_update)
+		print("您已修改您的个人信息")
+	else:
+		print("update failed")
+
+
+def stu_info(user):
+	"""操作学生个人信息"""
+	logName = user
+	Flag = True
+	while Flag:
+		information()
+		select = input("您想要进行什么操作？")
+		if select == '1':
+			show_stu_info(logName)
+		elif select == '2':
+			"""修改个人信息"""
+			change_stu_info(logName)
+		elif select == '3':
+			"""退出学生页面"""
+			Flag = False
+			print("退出学生信息页面")
+		else:
+			print("请输入正确的选择，下面回到主菜单！")
+
+
+def Student(user):
 	"""学生界面"""
+	logName = user    #记录登陆的账户
 	Flag = True
 	while Flag:
 		menu_stu()
 		select = input("您想要进行什么操作？")
 		if select == '1':
-			manage_student()
+			'''个人信息'''
+			stu_info(logName)
 		elif select == '2':
-			search_student()
+			"""选课"""
+			pass
 		elif select == '3':
-			manage_course()
+			"""查看选课"""
+			pass
 		elif select == '4':
 			"""学生选课"""
-			stu_select_course()
+			pass
 		elif select == '5':
-			pass
-			# checkCourse()
-			# dealCourse()
-		
-		elif select == '6':
-			"""给学生的课程打分"""
-			pass
-			# makeScore()
-		elif select == '7':
-			pass
-			# showScore()
-
-		elif select == '8':
+			"""退出学生页面"""
 			Flag = False
 			print("退出学生管理系统！")
 		else:
-			print("请输入正确的选择！")
+			print("请输入正确的选择，下面回到主菜单！")
 
 
 def get_user():
@@ -337,10 +387,10 @@ if __name__ == '__main__':
 		menu()
 		select = input("请输入您的选择：")
 		if select == '1':
-			user, pwd = login()
-			tag = check_student_login(user, pwd)
+			logName, pwd = login()
+			tag = check_student_login(logName, pwd)
 			if tag:
-				Student()
+				Student(logName)
 			else:
 				print("用户名或者密码出错！下面回到主菜单")
 		elif select == '2':

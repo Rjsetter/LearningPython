@@ -5,7 +5,8 @@
 	Authour: Rjsetter
 """
 import datetime
-
+datetime_dt = datetime.datetime.today()  # 获取当前日期和时间
+datetime_str = datetime_dt.strftime("%Y-%m-%d %H:%M:%S")  # 格式化日期时间
 
 def  menu_search_stu():
 	"""学生查询界面"""
@@ -46,7 +47,7 @@ def  menu_admin():
 	print("+\t      4.学生选课                      +")
 	print("+\t      5.查改课程                      +")
 	print("+\t      6.打分程序                      +")
-	print("+\t      7.查分                          +")
+	print("+\t      7.查看学生                          +")
 	print("+\t      8.退出系统                      +")
 	print("+++++++++++++++++++++++++++++++++++++++++++++++") 
 	print("+{0: ^45}+".format(datetime_str))
@@ -83,8 +84,6 @@ def menu():
 
 def menu_stu():
 	"""学生主菜单"""
-	datetime_dt = datetime.datetime.today()  # 获取当前日期和时间
-	datetime_str = datetime_dt.strftime("%Y-%m-%d %H:%M:%S")  # 格式化日期时间
 	print("########################################")
 	print("#              学生页面                #") 
 	print("########################################")      
@@ -93,6 +92,19 @@ def menu_stu():
 	print("#\t      3.查看选课               #")
 	print("#\t      4.查看成绩               #")			
 	print("#\t      5.退出系统               #")			
+	print("########################################") 
+	print("#{0: ^38}#".format(datetime_str))
+	print("########################################") 
+
+
+def information():
+	"""学生个人信息页面"""
+	print("########################################")
+	print("#        学生个人信息页面              #") 
+	print("########################################")      
+	print("#         1.查看个人信息               #")	
+	print("#         2.修改个人信息               #")	
+	print("#         3.退出系统                   #")			
 	print("########################################") 
 	print("#{0: ^38}#".format(datetime_str))
 	print("########################################") 
@@ -110,4 +122,5 @@ if __name__ == '__main__':
 	# menu_manage_corse()
 	# login()
 	# menu_stu()
-	menu()
+	# menu()
+	information()

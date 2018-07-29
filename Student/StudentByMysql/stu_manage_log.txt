@@ -148,3 +148,590 @@ pymysql.err.InternalError: (1054, "Unknown column 'Mysql' in 'field list'")
 2018-07-29 13:33:59,668 - logger - INFO - select * from user_
 2018-07-29 13:34:33,236 - logger - INFO - select * from user_
 2018-07-29 13:34:49,365 - logger - INFO - select * from user_
+2018-07-29 15:50:40,325 - logger - INFO - insert into user_(username, userpwd)values
+		('151310107','151310107')
+2018-07-29 15:50:40,407 - logger - ERROR - Insert operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 21, in insert
+    cursor.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1364, "Field 'user_id' doesn't have a default value")
+2018-07-29 15:51:35,308 - logger - INFO - insert into user_(username, userpwd)values
+		('151310107','151310107')
+2018-07-29 15:51:35,368 - logger - ERROR - Insert operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 21, in insert
+    cursor.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1364, "Field 'user_id' doesn't have a default value")
+2018-07-29 15:53:34,434 - logger - INFO - insert into user_(username, userpwd)values
+		('151310107','151310107')
+2018-07-29 15:53:44,100 - logger - INFO - select * from user_
+2018-07-29 15:53:56,332 - logger - INFO - select * from user_
+2018-07-29 15:54:38,624 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310107','李白','18','男','13564685456')
+2018-07-29 15:54:38,658 - logger - INFO - insert into user_ (stu_id) values (user) where username = user
+2018-07-29 15:54:38,679 - logger - ERROR - Insert operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 21, in insert
+    cursor.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username = user' at line 1")
+2018-07-29 16:02:54,339 - logger - INFO - select * from user_
+2018-07-29 16:03:48,737 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310107','李小白','18','男','13354684554')
+2018-07-29 16:03:48,809 - logger - INFO - update usr_ set stu_id = 151310107,where username = 151310107
+2018-07-29 16:03:48,919 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username = 151310107' at line 1")
+2018-07-29 16:06:48,266 - logger - INFO - select * from user_
+2018-07-29 16:07:16,853 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310123','礼拜','14','男','12345437896')
+2018-07-29 16:07:16,886 - logger - INFO - update usr_ set stu_id = 151310123, where username == 151310107
+2018-07-29 16:07:16,934 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username == 151310107' at line 1")
+2018-07-29 16:10:28,648 - logger - INFO - select * from user_
+2018-07-29 16:10:54,569 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310107','礼拜','14','男','13371913706')
+2018-07-29 16:10:54,641 - logger - INFO - update user_ set stu_id = 151310107, where username = 151310107
+2018-07-29 16:10:54,663 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username = 151310107' at line 1")
+2018-07-29 16:13:44,806 - logger - INFO - select * from user_
+2018-07-29 16:14:05,918 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310108','礼拜','14','男','12278787878')
+2018-07-29 16:14:05,975 - logger - INFO - update user_ set stu_id = '151310108', where username = '151310108'
+2018-07-29 16:14:06,010 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username = '151310108'' at line 1")
+2018-07-29 16:16:59,597 - logger - INFO - select * from user_
+2018-07-29 16:17:23,103 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('13','也起','12','男','12234336789')
+2018-07-29 16:17:23,157 - logger - INFO - update user_ set stu_id = '13', where username = 151310107
+2018-07-29 16:17:23,211 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username = 151310107' at line 1")
+2018-07-29 16:23:19,722 - logger - INFO - select * from user_
+2018-07-29 16:23:38,858 - logger - INFO - select * from user_
+2018-07-29 16:23:59,511 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310107','礼拜','13','男','1443625136')
+2018-07-29 16:23:59,552 - logger - INFO - update user_ set stu_id = '151310107', where username = 151310107
+2018-07-29 16:23:59,597 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username = 151310107' at line 1")
+2018-07-29 16:29:17,442 - logger - INFO - select * from student_
+2018-07-29 16:29:17,534 - logger - INFO - 打印了所有学生信息
+2018-07-29 16:29:50,433 - logger - INFO - update student_ set sid = 151310105,sname = 'asd',sage = 23, sgender = 'nan ', sphone = 12313 where sid = 13
+2018-07-29 16:31:35,921 - logger - INFO - select * from user_
+2018-07-29 16:32:00,467 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310199','吕布','28','男','13371898976')
+2018-07-29 16:32:00,538 - logger - INFO - update user_ set stu_id = '151310199'where username = 151310107
+2018-07-29 16:40:59,844 - logger - INFO - select * from user_
+2018-07-29 16:41:04,072 - logger - INFO - select * from student_ where user_.stu_id =151310107
+2018-07-29 16:41:04,152 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 39, in search
+    cur.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'user_.stu_id' in 'where clause'")
+2018-07-29 16:50:17,493 - logger - INFO - select * from user_
+2018-07-29 16:50:23,436 - logger - INFO - SELECT student_.sname,student_.gender FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 16:50:23,544 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 39, in search
+    cur.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'student_.gender' in 'field list'")
+2018-07-29 16:50:46,325 - logger - INFO - select * from user_
+2018-07-29 16:50:49,942 - logger - INFO - SELECT student_.sname,student_.sgender FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:09:14,761 - logger - INFO - select * from user_
+2018-07-29 18:09:18,249 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.age, student_.phone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:09:18,392 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 39, in search
+    cur.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'student_.age' in 'field list'")
+2018-07-29 18:09:52,984 - logger - INFO - select * from user_
+2018-07-29 18:09:55,528 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:10:53,947 - logger - INFO - select * from user_
+2018-07-29 18:10:58,345 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:11:39,246 - logger - INFO - select * from user_
+2018-07-29 18:11:42,118 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:13:04,372 - logger - INFO - select * from user_
+2018-07-29 18:13:06,684 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:14:11,219 - logger - INFO - select * from user_
+2018-07-29 18:14:13,226 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:15:42,944 - logger - INFO - select * from user_
+2018-07-29 18:15:53,816 - logger - INFO - select * from user_
+2018-07-29 18:15:55,512 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:17:26,934 - logger - INFO - select * from user_
+2018-07-29 18:17:29,134 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:19:34,539 - logger - INFO - select * from user_
+2018-07-29 18:19:37,515 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:19:56,530 - logger - INFO - select * from user_
+2018-07-29 18:19:59,123 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:21:05,585 - logger - INFO - select * from user_
+2018-07-29 18:21:07,185 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:21:41,121 - logger - INFO - select * from user_
+2018-07-29 18:21:42,329 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:31:04,310 - logger - INFO - select * from student_
+2018-07-29 18:31:04,389 - logger - INFO - 打印了所有学生信息
+2018-07-29 18:32:00,381 - logger - INFO - update student_ set sid = 151310199,sname = '',sage = 55, sgender = '男', sphone = 131345567890 where sid = 151310199
+2018-07-29 18:32:18,821 - logger - INFO - select * from user_
+2018-07-29 18:32:21,437 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:33:29,334 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310107','叶强','21','男','13371913706')
+2018-07-29 18:33:29,492 - logger - INFO - update user_ set stu_id = '151310107'where username = 151310107
+2018-07-29 18:33:32,475 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:33:40,883 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:35:28,358 - logger - INFO - select * from user_
+2018-07-29 18:35:56,624 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310108','林','23','男','1233434334')
+2018-07-29 18:35:56,683 - logger - INFO - update user_ set stu_id = '151310108'where username = 151310107
+2018-07-29 18:35:59,944 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:39:03,006 - logger - INFO - select * from user_
+2018-07-29 18:45:40,895 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310222','李逵','34','男','13376768998')
+2018-07-29 18:45:43,257 - logger - INFO - insert into user_(username, userpwd, stu_id)values
+		('python','python','151310222')
+2018-07-29 18:45:56,738 - logger - INFO - select * from user_
+2018-07-29 18:46:01,347 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:46:17,710 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:46:18,534 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:48:01,828 - logger - INFO - select * from user_
+2018-07-29 18:48:04,253 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:51:59,441 - logger - INFO - python
+2018-07-29 18:51:59,442 - logger - INFO - select * from user_
+2018-07-29 18:52:03,170 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:56:03,824 - logger - INFO - select * from user_
+2018-07-29 18:56:05,864 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:57:15,547 - logger - INFO - select * from user_
+2018-07-29 18:57:17,148 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid
+2018-07-29 18:59:26,599 - logger - INFO - select * from user_
+2018-07-29 18:59:32,823 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = python
+2018-07-29 18:59:32,878 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 39, in search
+    cur.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'python' in 'where clause'")
+2018-07-29 19:01:44,682 - logger - INFO - select * from user_
+2018-07-29 19:01:49,194 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:01:52,842 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:02:05,113 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:02:05,174 - logger - INFO - select * from course_
+2018-07-29 19:03:45,567 - logger - INFO - select * from user_
+2018-07-29 19:04:28,077 - logger - INFO - insert into student_(sid,sname,sage,sgender,sphone)values
+		('151310123','宋江','45','男','15786789084')
+2018-07-29 19:04:30,194 - logger - INFO - insert into user_(username, userpwd, stu_id)values
+		('mysql','mysql','151310123')
+2018-07-29 19:04:37,198 - logger - INFO - select * from user_
+2018-07-29 19:04:39,974 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'mysql'
+2018-07-29 19:07:25,517 - logger - INFO - select * from user_
+2018-07-29 19:07:28,765 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:07:31,052 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:07:31,056 - logger - INFO - select * from student_
+2018-07-29 19:07:31,104 - logger - INFO - 打印了所有学生信息
+2018-07-29 19:13:15,870 - logger - INFO - select * from user_
+2018-07-29 19:13:20,390 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:13:23,270 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:14:31,800 - logger - INFO - select * from user_
+2018-07-29 19:14:35,608 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:14:38,079 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:15:19,488 - logger - INFO - update student_ set sid = 151310222,sname = '李旋风',sage = 34, sgender = '男', sphone = 13376784352 where sid = 151310222
+2018-07-29 19:15:21,304 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:17:32,490 - logger - INFO - select * from user_
+2018-07-29 19:17:35,914 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:17:37,674 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:18:24,211 - logger - INFO - update student_ sname = '（黑旋风）',sage = 34, sgender = '男', sphone = 13376784352 where sid = 151310222
+2018-07-29 19:18:24,315 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '（黑旋风）',sage = 34, sgender = '男', sphone = 13376784352 where sid =' at line 1")
+2018-07-29 19:20:50,288 - logger - INFO - select * from user_
+2018-07-29 19:20:58,014 - logger - INFO - select * from user_
+2018-07-29 19:20:59,974 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:21:02,134 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:21:25,103 - logger - INFO - update student_ sname = '李逵',sage = 34, sgender = '男', sphone = 13376789807 where sid = 151310222
+2018-07-29 19:21:25,157 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '李逵',sage = 34, sgender = '男', sphone = 13376789807 where sid = 15131022' at line 1")
+2018-07-29 19:24:47,219 - logger - INFO - select * from user_
+2018-07-29 19:24:53,779 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:24:55,675 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:25:20,716 - logger - INFO - update student_ sname = '李逵',sage = 34, sgender = '男', sphone = 13676768888 where sid = 151310222
+2018-07-29 19:25:20,790 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '李逵',sage = 34, sgender = '男', sphone = 13676768888 where sid = 15131022' at line 1")
+2018-07-29 19:27:57,416 - logger - INFO - select * from user_
+2018-07-29 19:28:05,031 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:28:07,079 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:28:25,680 - logger - INFO - update student_ sname = '李逵',sage = 34, sgender = '男', sphone = 13344545656 where sid = '151310222'
+2018-07-29 19:28:25,752 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '李逵',sage = 34, sgender = '男', sphone = 13344545656 where sid = '1513102' at line 1")
+2018-07-29 19:33:14,943 - logger - INFO - select * from user_
+2018-07-29 19:33:18,320 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:33:20,487 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:33:41,411 - logger - INFO - update student_ sname = 李逵, sage = 14,sgender = 男, sphone=12334343455 where sid = 151310222
+2018-07-29 19:33:41,490 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 李逵, sage = 14,sgender = 男, sphone=12334343455 where sid = 151310222' at line 1")
+2018-07-29 19:38:05,876 - logger - INFO - select * from user_
+2018-07-29 19:38:07,076 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:38:08,291 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:38:20,786 - logger - INFO - update student_ sname = '1',sage = 1, sgender = '1', sphone = 1 where sid = '151310222'
+2018-07-29 19:38:20,865 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '1',sage = 1, sgender = '1', sphone = 1 where sid = '151310222'' at line 1")
+2018-07-29 19:39:00,510 - logger - INFO - select * from user_
+2018-07-29 19:39:08,781 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:39:10,101 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:39:20,460 - logger - INFO - update student_ sname = 'liky',sage = 34, sgender = 'nan', sphone = 12313 where sid = '151310222'
+2018-07-29 19:39:20,549 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 75, in update
+    cur.execute(sql_update)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 'liky',sage = 34, sgender = 'nan', sphone = 12313 where sid = '151310222'' at line 1")
+2018-07-29 19:43:08,733 - logger - INFO - select * from user_
+2018-07-29 19:43:11,530 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-29 19:43:31,793 - logger - INFO - update student_ set sname = '李逵',sage = 34, sgender = '男', sphone = 15378690087 where sid = '151310222'
+2018-07-29 19:43:35,108 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
