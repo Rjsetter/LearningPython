@@ -15,34 +15,26 @@ from Db import *
 from logger import logger
 
 
-def insert2student():
+def insert2student(): 
 	"""插入数据库"""
+	"""返回一个sid值，用于插入user表中的外键"""
 	sid = input("请输入学生的学号：")
 	sname = input("请输入学生的姓名：")
 	sage = input("请输入学生的年龄：")
 	sgender = input("请输入学生的性别：")
 	sphone = input("请输入学生的电话：")
-	sql = """insert into student_(sid,sname,sage,sgender,sphone)values
+	sql_insert = """insert into student_(sid,sname,sage,sgender,sphone)values
 		('%s','%s','%d','%s','%d')"""%(sid, sname, int(sage),sgender,int(sphone))
-	confirm =  input("确认添加吗？(yes/no):")
+	confirm =  input("确认插入吗？(yes/no):")
 	if confirm == "yes":
-		insert(sql)
+		insert(sql_insert)
 	return sid
 
 def show_student(sql):
-	#返回的是一个嵌套元组
-	
+	"""打印学生库中的学生
+	   返回一个包含所有学生信息的元组"""
 	Tuple = search(sql)
-	if Tuple:
-		print("+++++++++++++++++++++++++++++++++++++++++++++++++")
-		print("|   学号    |  姓名   | 年龄| 性别 |  电话      |")
-		print("+++++++++++++++++++++++++++++++++++++++++++++++++")
-		for tuple_ in  Tuple:
-			# print(tuple_)
-			print("|{0:^11}| {1:\u3000<4}| {2:^4}| {3:^4}| {4:^11}|".format(tuple_[1],tuple_[2],tuple_[3],tuple_[4],tuple_[5]))
-		print("+++++++++++++++++++++++++++++++++++++++++++++++++")
-	else:
-		print("目前学生库里没有学生")
+	menu_show_stu(Tuple)
 	return Tuple
 
 
@@ -104,7 +96,7 @@ def change_stu():
 	sphone = input("请输入学生的电话：")
 	sql_update = "update student_ set sid = %s,sname = '"%(sid)+sname+"'"+",sage = %d, sgender = '"%(int(sage))+sgender+"'"+", sphone = %d where sid = %s"%(int(sphone),stu_id)
 	confirm =  input("确认修改吗？(yes/no):")
-	confirm_ = check_valid(stu_id,1,Tuple)
+	confirm_ = check_valid(stu_id,1,Tuple)       #验证输入的学号在库中
 	if confirm == "yes" and confirm_:
 		update(sql_update)
 	else:
@@ -112,6 +104,7 @@ def change_stu():
 
 
 def del_student():
+	"""删除学生"""
 	Tuple = show_all_student()
 	sid_ = input("请输入要删除的学生的学号：")
 	sql_ = 'DELETE FROM student_ WHERE sid = %s'%sid_
@@ -148,21 +141,9 @@ def manage_student():
 
 def show_course():
 	"""打印课程库里所有课程"""
-	statu = ('开', '不开')    #用一个元组记录课程状态
 	sql_course = "select * from course_"
 	Tuple = search(sql_course)
-	if Tuple:
-		print("+++++++++++++++++++++++++++++")
-		print("|课程号|  课程名   |课程状态|")
-		print("+++++++++++++++++++++++++++++")
-		for tuple_ in  Tuple:
-			# print(tuple_)
-			print("|{0:^6}| {1: <10}|{2:\u3000^4}|".format(tuple_[0],tuple_[1],statu[tuple_[2]]))
-		print("+++++++++++++++++++++++++++++")
-	else:
-		print("++++++++++++++++++++++++++++")
-		print("+      课程库里没有课程    +")
-		print("++++++++++++++++++++++++++++")
+	menu_show_close(Tuple)
 	return Tuple
 
 
@@ -172,7 +153,7 @@ def add_course():
 	cstatu = input("请输入课程状态（0.开 1.不开）：")
 	sql_addcourse = """insert into course_(cname, cstatus)values
 		('%s','%d')"""%(cname,int(cstatu))
-	confirm =  input("确认添加吗？(yes/no):")
+	confirm =  input("确认插入新课程吗？(yes/no):")
 	if confirm == "yes":
 		insert(sql_addcourse)
 	else:
@@ -190,6 +171,7 @@ def del_course():
 		del_info(sql_)
 	else:
 		print("del course failed")
+
 
 def change_course():
 	"""修改"""
@@ -285,16 +267,7 @@ def show_stu_info(user):
 	"""打印学生个人信息"""
 	sql_show_stu = "SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '"+user+"'"
 	content = search(sql_show_stu)
-	print('\n\n########################################')
-	print("#          个人信息如下                #")
-	print('########################################')
-	print("#学号：{0:\u3000<38}".format(content[0][0]))
-	print("#姓名：{0:\u3000<38}".format(content[0][1]))
-	print("#性别：{0:\u3000<38}".format(content[0][2]))
-	print("#年龄：{0:\u3000<38}".format(content[0][3]))
-	print("#电话：{0:\u3000<38}".format(content[0][4]))
-	print('########################################')
-	print('\n\n')
+	menu_per_info(content)
 	return content
 
 
@@ -303,7 +276,6 @@ def change_stu_info(user):
 	#请输入正确的学生学号，不然可能出现bug！
 	content = show_stu_info(user)
 	sid_ = content[0][0]
-	print(sid_)
 	sname = input("请输入学生的姓名：")
 	sage = input("请输入学生的年龄：")
 	sgender = input("请输入学生的性别：")
@@ -322,7 +294,7 @@ def stu_info(user):
 	logName = user
 	Flag = True
 	while Flag:
-		information()
+		menu_information()
 		select = input("您想要进行什么操作？")
 		if select == '1':
 			show_stu_info(logName)
@@ -337,6 +309,24 @@ def stu_info(user):
 			print("请输入正确的选择，下面回到主菜单！")
 
 
+def chose_class(user):
+	"""学生进行选课"""
+	show_course()   
+	chose = input("你好，%s！请选择你想要上课的课程号"%user)
+	sql_find_stu_id = "SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '"+user+"'"
+	stu_id = searchOne(sql_find_stu_id)
+	sql_insert_course = "insert into stu2course(sid, cid)values(%d,%d)"%(int(stu_id[0]),int(chose))
+	insert(sql_insert_course)
+	print("选课完成")
+
+
+def show_chose_course():
+	"""查看选课"""
+	sql_ = """select student_.sname, student_.sage, student_.sgender, course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid 
+		inner join course_ on course_.id=stu2course.cid"""
+	content = search(sql_)
+	print(content)
+
 def Student(user):
 	"""学生界面"""
 	logName = user    #记录登陆的账户
@@ -349,10 +339,10 @@ def Student(user):
 			stu_info(logName)
 		elif select == '2':
 			"""选课"""
-			pass
+			chose_class(logName)
 		elif select == '3':
 			"""查看选课"""
-			pass
+			show_chose_course()
 		elif select == '4':
 			"""学生选课"""
 			pass
@@ -387,15 +377,15 @@ if __name__ == '__main__':
 		menu()
 		select = input("请输入您的选择：")
 		if select == '1':
-			logName, pwd = login()
+			logName, pwd =menu_login()   #login为登录函数，会返回用户输入的用户名和密码用于验证
 			tag = check_student_login(logName, pwd)
 			if tag:
 				Student(logName)
 			else:
 				print("用户名或者密码出错！下面回到主菜单")
 		elif select == '2':
-			username,pwd = login()
-			if username == "admin" and pwd == "root":
+			logName, pwd = menu_login()
+			if logName == "admin" and pwd == "root":
 				admin()
 			else:
 				print("用户名或者密码出错！下面回到主菜单")

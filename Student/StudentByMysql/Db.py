@@ -47,6 +47,23 @@ def search(sql):
 		con.close()
 	return content
 
+def searchOne(sql):
+	"""接受sql语句，查询满足条件语句的元组"""
+	logger.info(sql)
+	con = connect_db()
+	cur = con.cursor()
+	try:
+		cur.execute(sql)
+		#查询时获取结果集中的所有行，一行构成一个元组，然后再将这些元组返回（即嵌套元组）
+		content = cur.fetchone()
+	except:
+		logger.exception("Search operation error")
+		raise 
+	finally:
+		cur.close()
+		con.close()
+	return content
+
 
 def del_info(sql):
 	"""删除信息"""

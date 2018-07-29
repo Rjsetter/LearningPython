@@ -97,7 +97,7 @@ def menu_stu():
 	print("########################################") 
 
 
-def information():
+def menu_information():
 	"""学生个人信息页面"""
 	print("########################################")
 	print("#        学生个人信息页面              #") 
@@ -109,7 +109,8 @@ def information():
 	print("#{0: ^38}#".format(datetime_str))
 	print("########################################") 
 
-def login():
+def menu_login():
+	"""登录页面"""
 	print("+"*28)
 	print("+{0:\u3000^13}+".format("登陆页面"))
 	print("+"*28)
@@ -117,6 +118,51 @@ def login():
 	pwd = input("Password：")
 	print("")
 	return username,pwd
+
+
+def menu_per_info(content):
+	"""打印个人信息"""
+	print('\n\n########################################')
+	print("#          个人信息如下                #")
+	print('########################################')
+	print("#学号：{0:\u3000<38}".format(content[0][0]))
+	print("#姓名：{0:\u3000<38}".format(content[0][1]))
+	print("#性别：{0:\u3000<38}".format(content[0][2]))
+	print("#年龄：{0:\u3000<38}".format(content[0][3]))
+	print("#电话：{0:\u3000<38}".format(content[0][4]))
+	print('########################################')
+	print('\n\n')
+
+def menu_show_close(Tuple):
+	"""打印课程信息"""
+	if Tuple:
+		statu = ('开', '不开')    #用一个元组记录课程状态
+		print("+++++++++++++++++++++++++++++")
+		print("|课程号|  课程名   |课程状态|")
+		print("+++++++++++++++++++++++++++++")
+		for tuple_ in  Tuple:
+			# print(tuple_)
+			print("|{0:^6}| {1: <10}|{2:\u3000^4}|".format(tuple_[0],tuple_[1],statu[tuple_[2]]))
+		print("+++++++++++++++++++++++++++++")
+	else:
+		print("++++++++++++++++++++++++++++")
+		print("+      课程库里没有课程    +")
+		print("++++++++++++++++++++++++++++")
+
+
+def menu_show_stu(Tuple):
+	"""打印学生信息"""
+	if Tuple:
+		print("+++++++++++++++++++++++++++++++++++++++++++++++++")
+		print("|   学号    |  姓名   | 年龄| 性别 |  电话      |")
+		print("+++++++++++++++++++++++++++++++++++++++++++++++++")
+		for tuple_ in  Tuple:
+			# print(tuple_)
+			print("|{0:^11}| {1:\u3000<4}| {2:^4}| {3:^4}| {4:^11}|".format(tuple_[1],tuple_[2],tuple_[3],tuple_[4],tuple_[5]))
+		print("+++++++++++++++++++++++++++++++++++++++++++++++++")
+	else:
+		print("目前学生库里没有学生")
+
 
 if __name__ == '__main__':
 	# menu_manage_corse()

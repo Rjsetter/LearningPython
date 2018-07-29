@@ -735,3 +735,109 @@ pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; chec
 2018-07-29 19:43:11,530 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
 2018-07-29 19:43:31,793 - logger - INFO - update student_ set sname = '李逵',sage = 34, sgender = '男', sphone = 15378690087 where sid = '151310222'
 2018-07-29 19:43:35,108 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:09:53,139 - logger - INFO - select * from user_
+2018-07-30 00:09:57,057 - logger - INFO - select * from course_
+2018-07-30 00:11:40,301 - logger - INFO - select * from user_
+2018-07-30 00:11:42,744 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:13:21,048 - logger - INFO - select * from user_
+2018-07-30 00:13:23,249 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:13:25,168 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:13:39,219 - logger - INFO - select * from user_
+2018-07-30 00:13:40,722 - logger - INFO - select * from course_
+2018-07-30 00:13:45,416 - logger - INFO - SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:20:38,341 - logger - INFO - select * from user_
+2018-07-30 00:20:45,278 - logger - INFO - select * from user_
+2018-07-30 00:20:50,349 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:20:55,814 - logger - INFO - select * from course_
+2018-07-30 00:20:58,183 - logger - INFO - SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:20:58,234 - logger - INFO - insert into stu2course(sid, cid)values(41,5)
+2018-07-30 00:33:21,419 - logger - INFO - select * from user_
+2018-07-30 00:33:24,452 - logger - INFO - select * from student_ inner join stu2course on student_.id=stu2course.id 
+		inner join course_ on course_.id=stu2course.id
+2018-07-30 00:33:24,583 - logger - ERROR - Search operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 39, in search
+    cur.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'stu2course.id' in 'on clause'")
+2018-07-30 00:34:33,734 - logger - INFO - select * from user_
+2018-07-30 00:34:35,621 - logger - INFO - select * from student_ inner join stu2course on student_.id=stu2course.sid 
+		inner join course_ on course_.id=stu2course.cid
+2018-07-30 00:37:22,107 - logger - INFO - select * from user_
+2018-07-30 00:37:27,155 - logger - INFO - select * from course_
+2018-07-30 00:37:30,154 - logger - INFO - SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:37:30,222 - logger - INFO - insert into stu2course(sid, cid)values(41,3)
+2018-07-30 00:37:34,874 - logger - INFO - select student_.sname, student_.sage, student_.sgender, course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid 
+		inner join course_ on course_.id=stu2course.cid
+2018-07-30 00:39:35,449 - logger - INFO - select * from student_
+2018-07-30 00:39:35,646 - logger - INFO - 打印了所有学生信息
+2018-07-30 00:39:48,412 - logger - INFO - select * from student_ where sname = '礼拜'
+2018-07-30 00:40:21,565 - logger - INFO - select * from student_ where sid = 151310107
+2018-07-30 00:40:41,901 - logger - INFO - select * from student_
+2018-07-30 00:40:41,982 - logger - INFO - 打印了所有学生信息
+2018-07-30 00:40:57,095 - logger - INFO - select * from student_
+2018-07-30 00:40:57,176 - logger - INFO - 打印了所有学生信息
+2018-07-30 00:41:07,208 - logger - INFO - DELETE FROM student_ WHERE sid = 151310199
+2018-07-30 00:41:15,934 - logger - INFO - select * from student_
+2018-07-30 00:41:15,994 - logger - INFO - 打印了所有学生信息
+2018-07-30 00:41:28,158 - logger - INFO - select * from course_
+2018-07-30 00:41:35,098 - logger - INFO - select * from course_
+2018-07-30 00:42:07,671 - logger - INFO - select * from course_
+2018-07-30 00:44:08,512 - logger - INFO - select * from user_
+2018-07-30 00:44:11,784 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '151310107'
+2018-07-30 00:44:17,697 - logger - INFO - select * from course_
+2018-07-30 00:44:19,591 - logger - INFO - SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '151310107'
+2018-07-30 00:44:19,602 - logger - INFO - insert into stu2course(sid, cid)values(35,1)
+2018-07-30 00:44:20,537 - logger - INFO - select * from course_
+2018-07-30 00:44:22,953 - logger - INFO - SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '151310107'
+2018-07-30 00:44:22,962 - logger - INFO - insert into stu2course(sid, cid)values(35,1)
+2018-07-30 00:44:23,047 - logger - ERROR - Insert operation error
+Traceback (most recent call last):
+  File "/home/python/Desktop/LearnPython/Student/StudentByMysql/Db.py", line 21, in insert
+    cursor.execute(sql)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '35-1' for key 'PRIMARY'")
+2018-07-30 00:45:03,288 - logger - INFO - select * from user_
+2018-07-30 00:45:05,681 - logger - INFO - select student_.sname, student_.sage, student_.sgender, course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid 
+		inner join course_ on course_.id=stu2course.cid
+2018-07-30 00:45:25,993 - logger - INFO - select * from course_
+2018-07-30 00:45:26,155 - logger - INFO - SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '151310107'
+2018-07-30 00:47:01,199 - logger - INFO - select * from user_
+2018-07-30 00:47:06,489 - logger - INFO - SELECT student_.sid,student_.sname,student_.sgender,student_.sage, student_.sphone FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:47:14,033 - logger - INFO - select student_.sname, student_.sage, student_.sgender, course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid 
+		inner join course_ on course_.id=stu2course.cid
+2018-07-30 00:47:22,946 - logger - INFO - select * from course_
+2018-07-30 00:47:24,802 - logger - INFO - SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = 'python'
+2018-07-30 00:47:24,884 - logger - INFO - insert into stu2course(sid, cid)values(41,1)
+2018-07-30 00:47:27,842 - logger - INFO - select student_.sname, student_.sage, student_.sgender, course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid 
+		inner join course_ on course_.id=stu2course.cid
