@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #_*_ encoding:utf-8_*_
 import pymysql
-from mysql_logging import logger    #从主模板导入需要的logger
+from logger import logger     
 
 def connect_db():
 	"""连接数据库"""
@@ -27,6 +27,8 @@ def insert(sql):
 	finally:
 		cursor.close()
 		con.close()
+
+		
 def search(sql):
 	"""多出复用"""
 	"""接收表名，获取表的所有信息，返回含有表内所有信息的元组对象"""

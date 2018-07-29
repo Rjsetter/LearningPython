@@ -33,8 +33,8 @@ def menu_manage_stu():
 	print("+"*28)
 
 
-def  menu():
-	"""用户可视窗口，即主菜单"""
+def  menu_admin():
+	"""用户可视窗口，即主菜单,管理员表"""
 	datetime_dt = datetime.datetime.today()  # 获取当前日期和时间
 	datetime_str = datetime_dt.strftime("%Y-%m-%d %H:%M:%S")  # 格式化日期时间
 	print("+++++++++++++++++++++++++++++++++++++++++++++++")
@@ -43,7 +43,7 @@ def  menu():
 	print("+\t      1.管理学生                      +")
 	print("+\t      2.查看学生                      +")		
 	print("+\t      3.课程管理                      +")		
-	print("+\t      4.学生选课情况                  +")
+	print("+\t      4.学生选课                      +")
 	print("+\t      5.查改课程                      +")
 	print("+\t      6.打分程序                      +")
 	print("+\t      7.查分                          +")
@@ -65,5 +65,49 @@ def menu_manage_corse():
 	print("+"*28)
 
 
+def menu():
+	"""学生管理系统主菜单"""
+	datetime_dt = datetime.datetime.today()  # 获取当前日期和时间
+	datetime_str = datetime_dt.strftime("%Y-%m-%d %H:%M:%S")  # 格式化日期时间
+	print("++++++++++++++++++++++++++++++++++++++++")
+	print("+        欢迎使用学生管理系统3.0       +") 
+	print("++++++++++++++++++++++++++++++++++++++++")      
+	print("+\t      1.学生登入               +")
+	print("+\t      2.管理员登入             +")		
+	print("+\t      3.学生注册               +")
+	print("+\t      4.退出系统               +")			
+	print("++++++++++++++++++++++++++++++++++++++++") 
+	print("+{0: ^38}+".format(datetime_str))
+	print("++++++++++++++++++++++++++++++++++++++++") 
+
+
+def menu_stu():
+	"""学生主菜单"""
+	datetime_dt = datetime.datetime.today()  # 获取当前日期和时间
+	datetime_str = datetime_dt.strftime("%Y-%m-%d %H:%M:%S")  # 格式化日期时间
+	print("########################################")
+	print("#              学生页面                #") 
+	print("########################################")      
+	print("#\t      1.个人信息               #")
+	print("#\t      2.选    课               #")		
+	print("#\t      3.查看选课               #")
+	print("#\t      4.查看成绩               #")			
+	print("#\t      5.退出系统               #")			
+	print("########################################") 
+	print("#{0: ^38}#".format(datetime_str))
+	print("########################################") 
+
+def login():
+	print("+"*28)
+	print("+{0:\u3000^13}+".format("登陆页面"))
+	print("+"*28)
+	username = input("Username：")
+	pwd = input("Password：")
+	print("")
+	return username,pwd
+
 if __name__ == '__main__':
-	menu_manage_corse()
+	# menu_manage_corse()
+	# login()
+	# menu_stu()
+	menu()

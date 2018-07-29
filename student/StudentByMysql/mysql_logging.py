@@ -9,18 +9,10 @@ Version:基于mysql的学生管理系统 v1.0
 #new#添加修改、删除校验函数 check_valid()
 #new#将数据库的操作函数连接、增、删、改、查封装到新模块Db.py
 """
-import logging, time
+import time
 from Menu import *
 from Db import *
-
-"""创建日志"""
-logger = logging.getLogger(__name__)
-logger.setLevel(level = logging.INFO)
-handler = logging.FileHandler("stu_manage_log.txt")
-handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+from logger import logger
 
 
 def insert2student():
@@ -70,7 +62,8 @@ def check_valid(id,index,turple_):
 		if id == t[index]:
 			return True
 	return False
-	
+
+
 def search_student():
 	"""按您选择的方式查询学生"""
 	flag = True
@@ -237,25 +230,21 @@ def manage_course():
 		if fl == '\n':
 			logger.info("执行了一次课程管理操作")
 
-												 
-if __name__ == '__main__':
+def admin():
+	"""管理员界面"""
 	Flag = True
 	while Flag:
-		menu()
+		menu_admin()
 		select = input("您想要进行什么操作？")
 		if select == '1':
 			manage_student()
 		elif select == '2':
 			search_student()
-			# addCourse()
-
 		elif select == '3':
 			manage_course()
-
 		elif select == '4':
-			"""打印学生选课信息"""
-			pass
-			# showStu_Course()
+			"""学生选课"""
+			stu_select_course()
 		elif select == '5':
 			pass
 			# checkCourse()
@@ -271,8 +260,100 @@ if __name__ == '__main__':
 
 		elif select == '8':
 			Flag = False
-			print("谢谢您使用我们的学生系统！欢迎再次使用～")
+			print("退出学生管理系统！")
 		else:
 			print("请输入正确的选择！")
 
 
+def register():
+	"""学生注册"""
+	print("欢迎注册,请输入下列信息：")
+	username = input("Username：")
+	pwd = input("Password:")
+	sql_register = """insert into user_(username, userpwd)values
+		('%s','%s')"""%(username, pwd)
+	confirm =  input("确认添加吗？(yes/no):")
+	if confirm == "yes":
+		insert(sql_register)
+		print("注册成功，请牢记您的用户名和密码！")
+	else:
+		print("注册失败,即将回到主菜单！")
+
+def Student():
+	"""学生界面"""
+	Flag = True
+	while Flag:
+		menu_stu()
+		select = input("您想要进行什么操作？")
+		if select == '1':
+			manage_student()
+		elif select == '2':
+			search_student()
+		elif select == '3':
+			manage_course()
+		elif select == '4':
+			"""学生选课"""
+			stu_select_course()
+		elif select == '5':
+			pass
+			# checkCourse()
+			# dealCourse()
+		
+		elif select == '6':
+			"""给学生的课程打分"""
+			pass
+			# makeScore()
+		elif select == '7':
+			pass
+			# showScore()
+
+		elif select == '8':
+			Flag = False
+			print("退出学生管理系统！")
+		else:
+			print("请输入正确的选择！")
+
+
+def get_user():
+	"""获取系统所有学生用户"""
+	sql = 'select * from user_'
+	Tuple = search(sql)
+	return Tuple
+
+
+def check_student_login(user, pwd):
+	"""验证学生登入"""
+	Tuple = get_user()
+	for tuple_ in Tuple:
+		if user == tuple_[1] and pwd == tuple_[2]: #判断帐号密码是否正确
+			return True
+	return False
+
+
+
+if __name__ == '__main__':
+	Flag = True
+	while Flag:
+		menu()
+		select = input("请输入您的选择：")
+		if select == '1':
+			user, pwd = login()
+			tag = check_student_login(user, pwd)
+			if tag:
+				Student()
+			else:
+				print("用户名或者密码出错！下面回到主菜单")
+		elif select == '2':
+			username,pwd = login()
+			if username == "admin" and pwd == "root":
+				admin()
+			else:
+				print("用户名或者密码出错！下面回到主菜单")
+		elif select == '3':
+			"""注册学生帐号"""
+			register()
+		elif select == '4':
+			Flag =False
+			print("感谢您使用我们的学生系统！欢迎再次使用～")
+		else:
+			print("请输入正确的选择！")

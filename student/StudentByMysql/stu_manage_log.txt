@@ -136,3 +136,15 @@ pymysql.err.InternalError: (1054, "Unknown column 'Mysql' in 'field list'")
 2018-07-29 04:39:51,165 - __main__ - INFO - 打印了所有学生信息
 2018-07-29 04:40:02,139 - mysql_logging - INFO - select * from course_
 2018-07-29 04:40:09,716 - mysql_logging - INFO - select * from course_
+2018-07-29 10:44:42,133 - logger - INFO - select * from student_
+2018-07-29 10:44:43,000 - logger - INFO - 打印了所有学生信息
+2018-07-29 10:45:42,768 - logger - INFO - select * from course_
+2018-07-29 10:48:12,186 - logger - INFO - select * from student_
+2018-07-29 10:48:12,191 - logger - INFO - 打印了所有学生信息
+2018-07-29 12:35:02,804 - logger - INFO - select * from student_
+2018-07-29 12:35:03,445 - logger - INFO - 打印了所有学生信息
+2018-07-29 13:15:57,707 - logger - INFO - insert into user_(username, userpwd)values
+		('151310107','151310107')
+2018-07-29 13:33:59,668 - logger - INFO - select * from user_
+2018-07-29 13:34:33,236 - logger - INFO - select * from user_
+2018-07-29 13:34:49,365 - logger - INFO - select * from user_
