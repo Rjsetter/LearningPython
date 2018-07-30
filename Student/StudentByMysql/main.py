@@ -13,7 +13,8 @@ import time
 from Menu import *
 from Db import *
 from logger import logger
-
+import cProfile
+import pstats
 
 def insert2student(): 
 	"""插入数据库"""
@@ -28,7 +29,7 @@ def insert2student():
 	confirm =  input("确认插入吗？(yes/no):")
 	if confirm == "yes":
 		insert(sql_insert)
-	return sid
+	return sid, confirm
 
 def show_student(sql):
 	"""打印学生库中的学生
@@ -89,12 +90,11 @@ def change_stu():
 	"""修改学生"""
 	Tuple = show_all_student()
 	stu_id = input("请输入你想要修改的学生的学号:")
-	sid = input("请输入学生的学号：")
 	sname = input("请输入学生的姓名：")
 	sage = input("请输入学生的年龄：")
 	sgender = input("请输入学生的性别：")
 	sphone = input("请输入学生的电话：")
-	sql_update = "update student_ set sid = %s,sname = '"%(sid)+sname+"'"+",sage = %d, sgender = '"%(int(sage))+sgender+"'"+", sphone = %d where sid = %s"%(int(sphone),stu_id)
+	sql_update = "update student_ set ,sname = '"+sname+"'"+",sage = %d, sgender = '"%(int(sage))+sgender+"'"+", sphone = %d where sid = %s"%(int(sphone),stu_id)
 	confirm =  input("确认修改吗？(yes/no):")
 	confirm_ = check_valid(stu_id,1,Tuple)       #验证输入的学号在库中
 	if confirm == "yes" and confirm_:
@@ -237,10 +237,7 @@ def admin():
 			pass
 			# makeScore()
 		elif select == '7':
-			t = get_user()
-			print(t)
-			# showScore()
-
+			get_user()
 		elif select == '8':
 			Flag = False
 			print("退出学生管理系统！")
@@ -253,7 +250,7 @@ def register():
 	print("欢迎注册,请输入下列信息：")
 	username = input("Username：")
 	pwd = input("Password:")
-	sid = insert2student()
+	sid, confirm= insert2student()
 	sql_register = """insert into user_(username, userpwd, stu_id)values
 		('%s','%s','%s')"""%(username, pwd, sid)
 	if confirm == "yes":
@@ -275,7 +272,7 @@ def change_stu_info(user):
 	"""修改个人信息"""
 	#请输入正确的学生学号，不然可能出现bug！
 	content = show_stu_info(user)
-	sid_ = content[0][0]
+	sid_ = content[0][0]   #获取学生学号，用以条件判断
 	sname = input("请输入学生的姓名：")
 	sage = input("请输入学生的年龄：")
 	sgender = input("请输入学生的性别：")
@@ -309,23 +306,39 @@ def stu_info(user):
 			print("请输入正确的选择，下面回到主菜单！")
 
 
+def get_key(user, key):
+	"""
+	从user_和student表，获取输入的key的信息
+	因为选课和查看选课会用到不一样的信息，所以才有了这个函数，
+	这都是因为这个项目的功能是一项一项添加的，所以前期有些设
+	计不合理。
+
+	"""
+	sql_find_key = "SELECT %s  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '"%(key)+user+"'"     #开始位置反了，一直返回None
+	item = searchOne(sql_find_key)
+	# print(item)
+	return item
+
+
+
 def chose_class(user):
 	"""学生进行选课"""
 	show_course()   
 	chose = input("你好，%s！请选择你想要上课的课程号"%user)
-	sql_find_stu_id = "SELECT student_.id  FROM student_,user_ WHERE user_.stu_id=student_.sid and user_.username = '"+user+"'"
-	stu_id = searchOne(sql_find_stu_id)
+	stu_id = get_key(user, "student_.id")
 	sql_insert_course = "insert into stu2course(sid, cid)values(%d,%d)"%(int(stu_id[0]),int(chose))
 	insert(sql_insert_course)
 	print("选课完成")
 
 
-def show_chose_course():
+def show_chose_course(user):
 	"""查看选课"""
-	sql_ = """select student_.sname, student_.sage, student_.sgender, course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid 
-		inner join course_ on course_.id=stu2course.cid"""
+	stu_id = get_key(user, "student_.sid")
+	sql_ = """select student_.sname, student_.sage, student_.sgender, course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid and student_.sid = %s
+		inner join course_ on course_.id=stu2course.cid
+		 """%stu_id
 	content = search(sql_)
-	print(content)
+	menu_show_selected_course(content)	
 
 def Student(user):
 	"""学生界面"""
@@ -342,7 +355,7 @@ def Student(user):
 			chose_class(logName)
 		elif select == '3':
 			"""查看选课"""
-			show_chose_course()
+			show_chose_course(user)
 		elif select == '4':
 			"""学生选课"""
 			pass
@@ -358,7 +371,7 @@ def get_user():
 	"""获取系统所有学生用户"""
 	sql = 'select * from user_'
 	Tuple = search(sql)
-	return Tuple
+	menu_show_user(Tuple)
 
 
 def check_student_login(user, pwd):
@@ -368,7 +381,6 @@ def check_student_login(user, pwd):
 		if user == tuple_[1] and pwd == tuple_[2]: #判断帐号密码是否正确
 			return True
 	return False
-
 
 
 if __name__ == '__main__':
@@ -381,6 +393,7 @@ if __name__ == '__main__':
 			tag = check_student_login(logName, pwd)
 			if tag:
 				Student(logName)
+				# cProfile.run("Student(logName)","prof.txt")
 			else:
 				print("用户名或者密码出错！下面回到主菜单")
 		elif select == '2':
@@ -397,3 +410,6 @@ if __name__ == '__main__':
 			print("感谢您使用我们的学生系统！欢迎再次使用～")
 		else:
 			print("请输入正确的选择！")
+		# p = pstats.Stats("prof.txt")
+		# p.sort_stats("time").print_stats()
+

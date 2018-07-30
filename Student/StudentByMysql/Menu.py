@@ -47,7 +47,7 @@ def  menu_admin():
 	print("+\t      4.学生选课                      +")
 	print("+\t      5.查改课程                      +")
 	print("+\t      6.打分程序                      +")
-	print("+\t      7.查看学生                          +")
+	print("+\t      7.查看学生                      +")
 	print("+\t      8.退出系统                      +")
 	print("+++++++++++++++++++++++++++++++++++++++++++++++") 
 	print("+{0: ^45}+".format(datetime_str))
@@ -162,6 +162,44 @@ def menu_show_stu(Tuple):
 		print("+++++++++++++++++++++++++++++++++++++++++++++++++")
 	else:
 		print("目前学生库里没有学生")
+
+
+def menu_show_selected_course(Tuple):
+	"""打印个人所选的课"""
+	if Tuple:
+		statu = ('开', '不开')    #用一个元组记录课程状态
+		print("选课情况如下：")
+		print("+++++++++++++++++++++")
+		print("|  课程名  |课程状态|")
+		print("+++++++++++++++++++++")
+		for tuple_ in  Tuple:
+			# print(tuple_)
+			print("|{0: <10}|{1:\u3000^4}|".format(tuple_[3],statu[tuple_[4]]))
+		print("+++++++++++++++++++++")
+	else:
+		print("++++++++++++++++++++++++")
+		print("+      您还没有选课    +")
+		print("++++++++++++++++++++++++")
+
+
+def menu_show_user(Tuple):
+	"""打印注册的学生"""
+	count = 0
+	if Tuple:
+		print("注册学生情况如下：")
+		print("++++++++++++++++++++++++++++")
+		print("|编号|   姓名   |   密码   |")
+		print("++++++++++++++++++++++++++++")
+		for tuple_ in  Tuple:
+			count += 1
+			# print(tuple_)
+			print("|{0:^4}|{1:<10}|{2:<10}|".format(count,tuple_[1],tuple_[2]))
+		print("++++++++++++++++++++++++++++")
+	else:
+		print("++++++++++++++++++++++++++++")
+		print("+     目前还没有学生注册    +")
+		print("++++++++++++++++++++++++++++")
+		print("这个功能没有测试，或许输出表格会有点问题！")
 
 
 if __name__ == '__main__':
