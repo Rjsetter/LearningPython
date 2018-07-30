@@ -44,11 +44,10 @@ def  menu_admin():
 	print("+\t      1.管理学生                      +")
 	print("+\t      2.查看学生                      +")		
 	print("+\t      3.课程管理                      +")		
-	print("+\t      4.学生选课                      +")
-	print("+\t      5.查改课程                      +")
-	print("+\t      6.打分程序                      +")
-	print("+\t      7.查看学生                      +")
-	print("+\t      8.退出系统                      +")
+	print("+\t      4.选课情况                      +")
+	print("+\t      5.打分程序                      +")
+	print("+\t      6.查看学生                      +")
+	print("+\t      7.退出系统                      +")
 	print("+++++++++++++++++++++++++++++++++++++++++++++++") 
 	print("+{0: ^45}+".format(datetime_str))
 	print("+++++++++++++++++++++++++++++++++++++++++++++++") 
@@ -133,6 +132,23 @@ def menu_per_info(content):
 	print('########################################')
 	print('\n\n')
 
+
+
+def menu_show_grade(Tuple):
+	"""打印学生分数"""
+	if Tuple != () and Tuple[0][2] != 0: #用来判断学生是否已经选课，如果没有这个的话，在学生没选课的情况下进行查看成绩的话，程序会崩溃。
+		print("+++++++++++++++++++++++++")
+		print("|课程号|  课程名   |分数|")
+		print("+++++++++++++++++++++++++")
+		for tuple_ in  Tuple:
+			print("|{0:^6}| {1:<10}|{2:^4}|".format(tuple_[0],tuple_[1],tuple_[2]))
+		print("+++++++++++++++++++++++++")
+	else:
+		print("++++++++++++++++++++++++++++")
+		print("     您还没有选课或您的课程还没有打分   ")
+		print("++++++++++++++++++++++++++++")
+
+
 def menu_show_close(Tuple):
 	"""打印课程信息"""
 	if Tuple:
@@ -164,13 +180,31 @@ def menu_show_stu(Tuple):
 		print("目前学生库里没有学生")
 
 
+def menu_show_all_selected_course(T):
+	"""打印所有学生所选的课"""
+	if T:
+		Tuple = sorted(T)
+		statu = ('开', '不开')    #用一个元组记录课程状态
+		print("选课情况如下：")
+		print("+++++++++++++++++++++++++++++++++++++")
+		print("|   学号   |   姓名   |课程名|课程状态|")
+		print("+++++++++++++++++++++++++++++++++++++")
+		for tuple_ in  Tuple:
+			# print(tuple_)
+			print("|{0: <10}|{1:\u3000<5}|{2:<6}|{3:\u3000<3}|".format(tuple_[0],tuple_[1],tuple_[2],statu[tuple_[3]]))
+		print("+++++++++++++++++++++++++++++++++++++")
+	else:
+		print("++++++++++++++++++++++++")
+		print("+      您还没有选课    +")
+		print("++++++++++++++++++++++++")
+
 def menu_show_selected_course(Tuple):
 	"""打印个人所选的课"""
 	if Tuple:
 		statu = ('开', '不开')    #用一个元组记录课程状态
 		print("选课情况如下：")
 		print("+++++++++++++++++++++")
-		print("|  课程名  |课程状态|")
+		print("| | 课程名  |课程状态|")
 		print("+++++++++++++++++++++")
 		for tuple_ in  Tuple:
 			# print(tuple_)

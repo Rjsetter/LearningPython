@@ -94,7 +94,7 @@ def change_stu():
 	sage = input("请输入学生的年龄：")
 	sgender = input("请输入学生的性别：")
 	sphone = input("请输入学生的电话：")
-	sql_update = "update student_ set ,sname = '"+sname+"'"+",sage = %d, sgender = '"%(int(sage))+sgender+"'"+", sphone = %d where sid = %s"%(int(sphone),stu_id)
+	sql_update = "update student_ set sname = '"+sname+"'"+",sage = %d, sgender = '"%(int(sage))+sgender+"'"+", sphone = %d where sid = %s"%(int(sphone),stu_id)
 	confirm =  input("确认修改吗？(yes/no):")
 	confirm_ = check_valid(stu_id,1,Tuple)       #验证输入的学号在库中
 	if confirm == "yes" and confirm_:
@@ -212,6 +212,25 @@ def manage_course():
 		if fl == '\n':
 			logger.info("执行了一次课程管理操作")
 
+def stu_select_course():
+	"""打印选课的学生的情况"""
+	sql = "select student_.sid, student_.sname,  course_.cname, course_.cstatus from student_ inner join stu2course on student_.id=stu2course.sid  inner join course_ on course_.id=stu2course.cid"
+	content = search(sql)
+	menu_show_all_selected_course(content)
+
+def set_grade():
+	"""打分系统，显示学生用户，然后输入学生学号和课程名进行打分"""
+	stu_select_course()
+	sid = input("输入你想打分的学生学号：")
+	sql = "select course_.id, course_.cname from student_ inner join stu2course on student_.id=stu2course.sid  and student_.sid = %s inner join course_ on course_.id=stu2course.cid"%sid
+	content = search(sql)
+	for msg in content:
+		score = int(input("请给{}打分：".format(msg[1])))
+		sql_ = "UPDATE stu2course SET score = %d WHERE cid = %d"%(score,msg[0])
+		insert(sql_)
+	print("打分结束!")
+
+
 def admin():
 	"""管理员界面"""
 	Flag = True
@@ -225,20 +244,15 @@ def admin():
 		elif select == '3':
 			manage_course()
 		elif select == '4':
-			"""学生选课"""
+			"""查看所有学生选课"""
 			stu_select_course()
 		elif select == '5':
-			pass
-			# checkCourse()
-			# dealCourse()
-		
+			"""给学生打分"""
+			set_grade()
 		elif select == '6':
-			"""给学生的课程打分"""
-			pass
-			# makeScore()
+			Tuple = get_user()
+			menu_show_user(Tuple)
 		elif select == '7':
-			get_user()
-		elif select == '8':
 			Flag = False
 			print("退出学生管理系统！")
 		else:
@@ -340,6 +354,17 @@ def show_chose_course(user):
 	content = search(sql_)
 	menu_show_selected_course(content)	
 
+
+def get_grade(logName):
+	stu_id = get_key(logName, "student_.sid")
+	sql_ = """select  stu2course.cid, course_.cname, stu2course.score from student_ inner join stu2course on student_.id=stu2course.sid and student_.sid = %s
+		inner join course_ on course_.id=stu2course.cid
+		 """%stu_id
+	content = search(sql_)
+	print(content)
+	menu_show_grade(content)
+	
+
 def Student(user):
 	"""学生界面"""
 	logName = user    #记录登陆的账户
@@ -357,8 +382,8 @@ def Student(user):
 			"""查看选课"""
 			show_chose_course(user)
 		elif select == '4':
-			"""学生选课"""
-			pass
+			"""查看成绩"""
+			get_grade(logName)
 		elif select == '5':
 			"""退出学生页面"""
 			Flag = False
@@ -371,7 +396,8 @@ def get_user():
 	"""获取系统所有学生用户"""
 	sql = 'select * from user_'
 	Tuple = search(sql)
-	menu_show_user(Tuple)
+	# menu_show_user(Tuple)
+	return Tuple
 
 
 def check_student_login(user, pwd):
