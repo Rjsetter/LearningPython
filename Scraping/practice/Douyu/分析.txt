@@ -1,0 +1,52 @@
+https://www.douyu.com/g_jdqscjzc     ##刺激战场
+
+
+#分类链接
+#live-list-contentbox > li:nth-child(1) > a
+#live-list-contentbox > li:nth-child(2)
+#live-list-contentbox > li:nth-child(3)
+#live-list-contentbox > li:nth-child(289)
+#live-list-contentbox > li:nth-child(285)
+#live-list-contentbox > li:nth-child(6) > a
+#live-list-contentbox > li:nth-child(289)
+
+
+
+＃下一页　
+
+#主播名字
+#live-list-contentbox > li:nth-child(1) > a > div.mes > p > span.dy-name.ellipsis.fl
+
+#主播热度   （转换为人数？如果出现万，则进行转换）
+#live-list-contentbox > li:nth-child(1) > a > div.mes > p > span.dy-num.fr
+
+#直播分类
+#live-list-contentbox > li:nth-child(1) > a > div.mes > div > span
+
+主播标题
+#live-list-contentbox > li:nth-child(1) > a > div.mes > div > h3
+
+#主播标签
+#live-list-contentbox > li:nth-child(1) > a > div.impress-tag-list > span:nth-child(1)
+#live-list-contentbox > li:nth-child(1) > a > div.impress-tag-list > span:nth-child(2)
+#live-list-contentbox > li:nth-child(1) > a > div.impress-tag-list > span:nth-child(3)
+#live-list-contentbox > li:nth-child(1) > a > div.impress-tag-list > span:nth-child(4)
+#没有主播标签
+#live-list-contentbox > li:nth-child(119) > a > div.impress-tag-list > div
+
+
+调试过程
+try:
+	dy_num = driver.find_element_by_css_selector("#live-list-contentbox > li:nth-child(1) > a > div.mes > p > span.dy-num.fr").text
+	print("-----1------",dy_num)
+	# num = str(dy_num)
+	if dy_num.isdigit():
+		pass
+	else:
+		print("-----2------")
+		dy_num = dy_num.replace('万','')
+		print("-----3------")
+		dy_num = int(float(dy_num)*10000)
+		print(dy_num)
+except:
+	print("wrong")
